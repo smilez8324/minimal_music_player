@@ -133,7 +133,25 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
             ]));
   }
 
-  Widget _buildTitle(String title) {}
+  Widget _buildTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Text(
+        title,
+        style: AppStyle.title,
+      ),
+    );
+  }
+
+  Widget _buildArtist(String artist) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Text(
+        artist,
+        style: AppStyle.artist,
+      ),
+    );
+  }
 
   Widget _buildMetaData() {
     return StreamBuilder<SequenceState?>(
@@ -149,6 +167,7 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
           children: [
             _buildArtwork(metadata.artwork),
             _buildTitle(metadata.title),
+            _buildArtist(metadata.artist),
           ],
         );
       },
